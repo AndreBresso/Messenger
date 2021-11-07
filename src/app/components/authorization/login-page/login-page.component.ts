@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
-import {AuthService} from '../../../services/auth/auth.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth/auth.service';
 
 export enum ImagePaths {
   PasswordIsHidden = '../../assets/img/eye-visible.png',

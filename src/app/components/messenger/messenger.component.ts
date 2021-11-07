@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AuthService, PersonalDataType } from '../../services/auth/auth.service';
 import { MessageDataType } from './messeges-section/messages-section.component';
 import { Subject } from 'rxjs';
-import {Router} from '@angular/router';
 
 export const scrollSubject$ = new Subject();
 
@@ -19,13 +18,7 @@ export class MessengerComponent {
   public selectedUserIndex: number;
   public selectedUserData: PersonalDataType;
 
-  constructor(
-    private readonly router: Router,
-    private readonly authService: AuthService
-  ) {
-    if (!this.authService.isAuth) {
-      this.router.navigateByUrl("/login");
-    }
+  constructor(private readonly authService: AuthService) {
     this.usersData = this.authService.getUsers;
   }
 

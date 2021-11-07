@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'sign-up', loadChildren: () => import('./modules/lazy-loaded/lazy-loaded.module').then(m => m.LazyLoadedModule)},
   { path: 'main', component: MessengerComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     children: [
       { path: '', component: UserContactsComponent },
       { path: 'menu', component: UserMenuComponent },

@@ -283,7 +283,7 @@ export class AuthService {
       ]
     }
   ];
-  public isAuth: boolean = false;
+  public isAuth: boolean = true;
 
   public authUserData: authUserDataType = {
     id: null,
