@@ -1,0 +1,36 @@
+@import '../../../../../assets/common-styles';
+
+:host {
+    display: flex;
+    margin-top: 10px;
+
+    .person-image {
+        height: 31px;
+        width: 31px;
+        margin-right: 10px;
+        border-radius: 15px;
+    }
+
+    .message {
+        background-color: $te-white;
+        font-family: $te-font;
+        font-size: $te-font-medium;
+        border-radius: 8px;
+        display: flex;
+
+       .message-text {
+         max-width: 350px;
+         padding: 8px;
+         word-break: break-word;
+       }
+
+       .message-time {
+         font-size: $te-font-tiny;
+         color: $te-grey-3;
+         padding-right: 8px;
+         padding-bottom: 4px;
+         display: flex;
+         align-items: flex-end;
+       }
+    }
+}

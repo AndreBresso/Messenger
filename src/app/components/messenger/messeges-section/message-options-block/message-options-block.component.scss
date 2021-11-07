@@ -1,0 +1,54 @@
+@import '../../../../../assets/common-styles';
+
+:host {
+    height: 30px;
+    width: calc(100% - 31px);
+    padding: 10px 15px;
+    background: $te-white;
+    border-left: 1px solid $te-grey-2;
+    display: flex;
+    justify-content: space-between;
+
+    .info-section {
+        display: flex;
+        flex-direction: column;
+        font-family: $te-font;
+
+        .name {
+          font-size: $te-font-large;
+          font-weight: 700;
+        }
+
+        .time {
+            margin-top: 2px;
+            font-size: $te-font-small;
+            color: $te-grey-3;
+        }
+    }
+
+  .options-buttons-block {
+    display: flex;
+    align-items: center;
+
+    .option-button {
+      height: 18px;
+      width: 18px;
+      background-color: $te-white;
+      padding: 0;
+      opacity: 70%;
+      border: none;
+      cursor: pointer;
+      &:last-child {
+        margin-left: 10px;
+      }
+      &:hover {
+        opacity: 50%;
+      }
+
+      .button-image {
+        height: inherit;
+        width: inherit;
+      }
+    }
+  }
+}

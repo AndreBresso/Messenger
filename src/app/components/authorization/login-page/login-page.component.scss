@@ -1,0 +1,104 @@
+@import '../../../../assets/common-styles';
+
+:host {
+  height: 100vh;
+  font-family: $te-font;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .form-wrapper {
+    width: 350px;
+
+    .login-header {
+      margin: 0 0 40px 0;
+      text-align: center;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+
+      .form-input {
+        height: 50px;
+        margin-bottom: 15px;
+        padding: 0;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid $te-grey-2;
+        font-size: 20px;
+
+        &.password {
+          width: calc(100% - 75px);
+          margin-right: 10px;
+        }
+      }
+
+      .password-input-block  {
+        display: flex;
+
+        .icon-wrapper {
+          height: 50px;
+          width: 70px;
+          border-bottom: 1px solid $te-grey-2;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          &:hover {
+            opacity: 80%;
+          }
+
+          .eye-toggle-icon {
+            height: 25px;
+            width: 25px;
+          }
+        }
+      }
+
+      .submit-button {
+        height: 50px;
+        padding: 0;
+        margin-top: 40px;
+        font-size: 16px;
+        background-color: $te-white-blue;
+        color: $te-white;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+          opacity: 90%;
+        }
+
+        .submit-link {
+          height: 100%;
+          width: 100%;
+          color: $te-white;
+          font-family: $te-font;
+          font-size: 16px;
+          text-transform: uppercase;
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+    .sign-in-button {
+      padding: 10px 20px;
+      color: $te-blue;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      &:hover {
+        opacity: 80%;
+      }
+    }
+  }
+}

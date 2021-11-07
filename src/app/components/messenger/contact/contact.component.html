@@ -1,0 +1,19 @@
+<section
+  class="users-section"
+  [class.selectedUser]="isSelected"
+  [class.selected-user-hover]="isSelected">
+    <img class="personal-image" [src]="userData.img" />
+    <div class="chat-history">
+        <div class="top-information">
+            <span class="name">
+                {{ userData.firstName + " " + userData.lastName}}
+            </span>
+            <span class="last-message-time" [class.white]="isSelected">
+              {{ lastMessageTime | date: 'shortTime' }}
+            </span>
+        </div>
+        <div class="last-message" [class.white]="isSelected">
+            {{ lastMessage }}
+        </div>
+    </div>
+</section>

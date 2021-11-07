@@ -1,0 +1,63 @@
+@import '../../../../assets/common-styles';
+
+.users-section {
+    height: 62px;
+    width: inherit;
+    font-size: $te-font-medium;
+    font-family: $te-font;
+    display: flex;
+    &:hover {
+        cursor: pointer;
+        background-color: $te-grey-1;
+    }
+    &.selected-user-hover:hover {
+        background-color: $te-blue;
+    }
+
+    .personal-image {
+        width: $te-medium-image;
+        height: $te-medium-image;
+        border-radius: 31px;
+        padding: 10px;
+    }
+
+    .chat-history {
+        width: calc(100% - 72px);
+        padding: 10px 10px 10px 0;
+
+        .top-information {
+            height: 20px;
+            display: flex;
+            justify-content: space-between;
+
+            .name {
+                font-size: $te-font-large;
+                font-weight: 900;
+            }
+
+            .last-message-time {
+                font-size: $te-font-small;
+                color: $te-grey-3;
+                &.white {
+                    color: $te-white;
+                }
+            }
+        }
+
+        .last-message {
+            height: 15px;
+            margin-top: 7px;
+            font-weight: 400;
+            color: $te-grey-3;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            &.white {
+                color: $te-white;
+            }
+        }
+    }
+    &.selectedUser {
+        color: $te-white;
+        background-color: $te-blue;
+    }
+}

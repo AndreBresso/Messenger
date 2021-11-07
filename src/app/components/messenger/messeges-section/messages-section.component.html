@@ -1,0 +1,42 @@
+<div class="select-chat-message" *ngIf="!isAnyUserSelected">
+    <span class="message">
+        Select a chat to start messaging
+    </span>
+</div>
+<app-message-options-block
+  *ngIf="isAnyUserSelected"
+  [selectedUserData]="selectedUserData">
+</app-message-options-block>
+    <div class="messages-wrapper" *ngIf="isAnyUserSelected" #scrollableMessagesWrapper>
+        <div class="fix"></div>
+        <app-message
+            *ngFor="let message of selectedUserData.messages"
+            [message]="message">
+        </app-message>
+    </div>
+<div class="message-input-wrapper" *ngIf="isAnyUserSelected">
+    <button class="input-button">
+        <img
+          class="attach-icon"
+          alt="attach icon"
+          src="../../../../assets/img/attach-not-hover.png">
+    </button>
+    <input
+        class="message-input"
+        type="text"
+        placeholder="Write a message..."
+        autofocus
+        #messagesInput
+        [(ngModel)]="newTextMessage"
+        (ngModelChange)="onCheckInputInner($event)"
+        (keydown)="onEnterKeyPress($event)">
+    <button
+        class="input-button"
+        (click)="onAddMessage()"
+        *ngIf="isInputHasLetter">
+        <img
+            class="send-message-icon"
+            src="../../../../assets/img/active-input.png"
+            alt="send message">
+    </button>
+</div>

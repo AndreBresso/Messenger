@@ -1,0 +1,26 @@
+<aside class="contacts-section">
+  <div class="menu-button-and-input-block">
+    <a routerLink="/main/menu" class="aside-menu-button">
+      <img class="menu-icon" src="../../../assets/img/menu.png" alt="menu">
+    </a>
+    <input
+      class="aside-input"
+      type="text"
+      placeholder="Search"
+      [(ngModel)]="searchRequest">
+  </div>
+  <div class="contacts-wrapper">
+    <app-contact
+      *ngFor="let user of usersData | search: searchRequest"
+      [userData]="user"
+      [isSelected]="user.id === selectedUserId"
+      (click)="changeSelectedUser(user.id)">
+    </app-contact>
+  </div>
+</aside>
+<!--<router-outlet></router-outlet>-->
+<app-messages-section
+  [isAnyUserSelected]="isAnyUserSelected"
+  [selectedUserData]="selectedUserData"
+  (addNewMessage)="addNewMessage($event)">
+</app-messages-section>
