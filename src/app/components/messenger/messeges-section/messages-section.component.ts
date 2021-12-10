@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, ViewChild, ElementRef, OnDestroy} from '@angular/core'
+import {Component, EventEmitter, Input, Output, ViewChild, ElementRef, OnDestroy, OnChanges} from '@angular/core';
 import {scrollSubject$} from '../messenger.component';
 import {delay} from 'rxjs/operators';
 import {PersonalDataType} from '../../../services/auth/auth.service';
@@ -56,7 +56,7 @@ export class MessagesSectionComponent implements OnDestroy {
     this.newTextMessage ? this.isInputHasLetter = true : this.isInputHasLetter = false;
   }
 
-  public scrollOnAddMessage(): void {
+  private scrollOnAddMessage(): void {
     this.messagesWrapper.nativeElement.scrollTop = this.messagesWrapper.nativeElement.scrollHeight;
   }
 

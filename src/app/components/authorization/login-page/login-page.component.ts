@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
+import {FormControl, FormGroup} from '@angular/forms';
 
 export enum ImagePaths {
   PasswordIsHidden = '../../assets/img/eye-visible.png',
@@ -16,6 +17,7 @@ export class LoginPageComponent {
   public isPasswordShown: boolean = false;
   public passwordIconPath: string = ImagePaths.PasswordIsHidden;
   public passwordInputType: string = 'password';
+  public loginForm: FormGroup;
 
   constructor(
     private readonly router: Router,
@@ -23,7 +25,13 @@ export class LoginPageComponent {
   ) {
     if (this.authService.isAuth) {
       this.router.navigateByUrl("/main");
+      return;
     }
+
+    this.loginForm = new FormGroup({
+      login: new FormControl(null),
+      password: new FormControl(null),
+    });
   }
 
   public changePasswordStatus(): void {
@@ -36,5 +44,9 @@ export class LoginPageComponent {
     this.isPasswordShown ?
       this.passwordIconPath = ImagePaths.PasswordIsVisible :
       this.passwordIconPath = ImagePaths.PasswordIsHidden;
+  }
+
+  public submitLoginForm(): void {
+    console.log(this.loginForm);
   }
 }
