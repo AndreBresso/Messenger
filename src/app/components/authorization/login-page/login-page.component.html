@@ -8,8 +8,13 @@
             type="text"
             placeholder="Login"
             formControlName="login"
-            autofocus
             maxlength="70">
+        <div
+          class="validation"
+          *ngIf="loginForm.controls.login.invalid && loginForm.controls.login.touched"
+        >
+          Incorrect login. Please, enter your login again
+        </div>
         <div class="password-input-block">
           <input
             class="form-input password"
@@ -24,7 +29,13 @@
               [src]="passwordIconPath"/>
           </div>
         </div>
-        <button class="submit-button" type="submit">Log In</button>
+      <div
+        class="validation"
+        *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched"
+      >
+        Password length must be more than {{ passwordLength }} characters
+      </div>
+        <button class="submit-button" type="submit" >Log In</button>
   </form>
   <a routerLink="/sign-up" class="sign-in-button">Sign Up?</a>
 </main>

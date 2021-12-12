@@ -10,7 +10,6 @@ import {FormsModule} from '@angular/forms';
 import {AuthService} from '../../services/auth/auth.service';
 import {AppRoutingModule} from '../../app-routing.module';
 import {UserMenuComponent} from '../../components/messenger/user-menu/user-menu.component';
-import {UserContactsComponent} from '../../components/messenger/user-contacts/user-contacts.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import {UserContactsComponent} from '../../components/messenger/user-contacts/us
     MessageComponent,
     MessengerComponent,
     UserMenuComponent,
-    UserContactsComponent,
     SearchPipe,
   ],
   imports: [

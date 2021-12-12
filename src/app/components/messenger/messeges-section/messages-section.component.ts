@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, Output, ViewChild, ElementRef, OnDestroy, OnChanges} from '@angular/core';
+import {Component, EventEmitter, Input, Output, ViewChild, ElementRef, OnDestroy} from '@angular/core';
 import {scrollSubject$} from '../messenger.component';
 import {delay} from 'rxjs/operators';
-import {PersonalDataType} from '../../../services/auth/auth.service';
+import {ContactData} from '../../../../assets/interfaces';
 
 export interface MessageDataType {
   messageText: string;
@@ -18,7 +18,7 @@ export class MessagesSectionComponent implements OnDestroy {
   @ViewChild('messagesInput', { static: false }) messagesInput: ElementRef;
   @ViewChild('scrollableMessagesWrapper', { static: false }) messagesWrapper: ElementRef;
   @Input() public isAnyUserSelected: boolean;
-  @Input() public selectedUserData: PersonalDataType;
+  @Input() public selectedUserData: ContactData;
   @Output() public addNewMessage = new EventEmitter<MessageDataType>();
   public isInputHasLetter: boolean;
   public newTextMessage: string;

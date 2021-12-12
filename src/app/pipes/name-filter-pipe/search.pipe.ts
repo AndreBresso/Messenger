@@ -1,11 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {PersonalDataType} from '../../services/auth/auth.service';
+import {ContactData} from '../../../assets/interfaces';
 
 @Pipe({
   name: 'search'
 })
 export class SearchPipe implements PipeTransform {
-  transform(contacts: PersonalDataType[], searchRequest: string): PersonalDataType[] {
+  transform(contacts: ContactData[], searchRequest: string): ContactData[] {
     if (!searchRequest) {
       return contacts;
     }

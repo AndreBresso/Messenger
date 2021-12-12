@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthService, PersonalDataType } from '../../services/auth/auth.service';
-import { MessageDataType } from './messeges-section/messages-section.component';
-import { Subject } from 'rxjs';
+import { AuthService } from '../../services/auth/auth.service';
+import {MessageDataType} from './messeges-section/messages-section.component';
+import {Subject} from 'rxjs';
+import {ContactData} from '../../../assets/interfaces';
 
 export const scrollSubject$ = new Subject();
 
@@ -11,12 +12,12 @@ export const scrollSubject$ = new Subject();
   styleUrls: ['./messenger.component.scss']
 })
 export class MessengerComponent {
-  public usersData: PersonalDataType[];
+  public usersData: ContactData[];
   public searchRequest: string;
   public isAnyUserSelected: boolean;
   public selectedUserId: number;
   public selectedUserIndex: number;
-  public selectedUserData: PersonalDataType;
+  public selectedUserData: ContactData;
 
   constructor(private readonly authService: AuthService) {
     this.usersData = this.authService.getUsers;
@@ -35,7 +36,7 @@ export class MessengerComponent {
   }
 
   public addNewMessage({ messageText, messageTime, userId }: MessageDataType): void {
-    const changedUsersData: PersonalDataType[] = this.usersData.map(( user, index) => {
+    const changedUsersData: ContactData[] = this.usersData.map(user => {
       if (user.id === userId) {
         return {
           ...user,

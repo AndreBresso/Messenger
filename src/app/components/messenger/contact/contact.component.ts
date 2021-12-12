@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PersonalDataType} from '../../../services/auth/auth.service';
+import {ContactData} from '../../../../assets/interfaces';
 
 @Component({
   selector: 'app-contact',
@@ -7,7 +7,7 @@ import {PersonalDataType} from '../../../services/auth/auth.service';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  @Input() public userData: PersonalDataType;
+  @Input() public userData: ContactData;
   @Input() public isSelected: boolean;
   public lastMessage: string;
   public lastMessageTime: Date;

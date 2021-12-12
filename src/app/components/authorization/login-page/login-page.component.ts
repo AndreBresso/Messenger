@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../../../services/auth/auth.service';
-import {FormControl, FormGroup} from '@angular/forms';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../../../services/auth/auth.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {SubmittedData} from '../../../../assets/interfaces';
 
 export enum ImagePaths {
   PasswordIsHidden = '../../assets/img/eye-visible.png',
@@ -17,6 +18,7 @@ export class LoginPageComponent {
   public isPasswordShown: boolean = false;
   public passwordIconPath: string = ImagePaths.PasswordIsHidden;
   public passwordInputType: string = 'password';
+  public passwordLength: number = 6;
   public loginForm: FormGroup;
 
   constructor(
@@ -29,9 +31,24 @@ export class LoginPageComponent {
     }
 
     this.loginForm = new FormGroup({
-      login: new FormControl(null),
-      password: new FormControl(null),
+      login: new FormControl('', [
+        Validators.email,
+        Validators.required,
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(this.passwordLength),
+      ]),
     });
+  }
+
+  public submitLoginForm(): void {
+    const submittedData: SubmittedData = {
+      login: this.loginForm.value.login,
+      password: this.loginForm.value.password,
+    };
+
+    this.authService.getAuthUser(submittedData);
   }
 
   public changePasswordStatus(): void {
@@ -44,9 +61,5 @@ export class LoginPageComponent {
     this.isPasswordShown ?
       this.passwordIconPath = ImagePaths.PasswordIsVisible :
       this.passwordIconPath = ImagePaths.PasswordIsHidden;
-  }
-
-  public submitLoginForm(): void {
-    console.log(this.loginForm);
   }
 }

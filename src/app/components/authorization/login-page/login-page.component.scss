@@ -33,6 +33,14 @@
           width: calc(100% - 75px);
           margin-right: 10px;
         }
+
+        &.ng-invalid.ng-touched {
+          border-bottom: 1px solid $te-red;
+        }
+
+        &.ng-valid.ng-touched {
+          border-bottom: 1px solid $te-valid;
+        }
       }
 
       .password-input-block  {
@@ -87,6 +95,10 @@
           justify-content: center;
           align-items: center;
         }
+      }
+
+      .validation {
+        color: $te-red;
       }
     }
 

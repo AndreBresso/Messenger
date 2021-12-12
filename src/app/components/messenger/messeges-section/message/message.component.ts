@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {MessageData} from '../../../../services/auth/auth.service';
+import {MessageData} from '../../../../../assets/interfaces';
 
 @Component({
   selector: 'app-message',

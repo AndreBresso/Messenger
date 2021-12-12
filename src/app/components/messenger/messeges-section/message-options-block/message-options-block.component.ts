@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {PersonalDataType} from '../../../../services/auth/auth.service';
+import {ContactData} from '../../../../../assets/interfaces';
 
 @Component({
   selector: 'app-message-options-block',
@@ -7,5 +7,5 @@ import {PersonalDataType} from '../../../../services/auth/auth.service';
   styleUrls: ['./message-options-block.component.scss']
 })
 export class MessageOptionsBlockComponent {
-  @Input() selectedUserData: PersonalDataType;
+  @Input() selectedUserData: ContactData;
 }
